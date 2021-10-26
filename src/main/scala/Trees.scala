@@ -4,9 +4,7 @@ class Trees {
   case object EmptyTree extends IntTree
   case class Node(elem: Int, left: IntTree, right: IntTree) extends IntTree
 
-  def contains(t: IntTree, v: Int): Boolean = {
-
-    t match {
+  def contains(t: IntTree, v: Int): Boolean = t match {
 
       case EmptyTree => false
 
@@ -15,13 +13,9 @@ class Trees {
       case Node(el, _, right) if el > v => contains(right, v)
 
       case _ => true
-
-    }
   }
 
-  def insert(t: IntTree, v: Int): IntTree = {
-
-    t match {
+  def insert(t: IntTree, v: Int): IntTree = t match {
 
       case EmptyTree => Node(v, EmptyTree, EmptyTree)
 
@@ -32,8 +26,6 @@ class Trees {
         Node(el, left, insert(right, v))
 
       case _ => t
-
-    }
   }
 
 }
